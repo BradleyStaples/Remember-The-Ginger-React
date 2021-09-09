@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
 
-const Card = ({ face, suit, color, isPlaying, clickIncrementor}) => {
+const Card = ({ face, suit, color, isPlaying, clickIncrementor, updateCardHistory}) => {
 
   const [isFaceup, setIsFaceup] = useState(false);
 
@@ -10,8 +10,13 @@ const Card = ({ face, suit, color, isPlaying, clickIncrementor}) => {
       event.preventDefault();
       return false;
     }
-    setIsFaceup(isFaceup => !isFaceup);
+    setIsFaceup(true);
     clickIncrementor();
+    updateCardHistory({
+      suit,
+      face,
+      setIsFaceup
+    });
   };
 
   const cardClasses = classnames({

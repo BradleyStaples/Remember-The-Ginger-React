@@ -1,31 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Page from '../components/page';
-import Deck from '../components/deck';
+import Game from '../components/game';
 import Footer from '../components/footer';
 
 const IndexPage = () => {
-
-  const [gameStarted, setGameStarted] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [buttonLabel, setButtonLabel] = useState('Start');
-  const [showOverlay, setShowOverlay] = useState(false);
-
-  const buttonHandler = (event) => {
-    if (!gameStarted) {
-      setGameStarted(true);
-    }
-    if (isPlaying) {
-      // about to pause, set label to resume
-      setButtonLabel('Resume');
-      setShowOverlay(true);
-    } else {
-      // about to resume, set label to pause
-      setButtonLabel('Pause');
-      setShowOverlay(false);
-    }
-    setIsPlaying(isPlaying => !isPlaying);
-  };
 
   return (
     <Page title='Remember The Ginger'>
@@ -33,12 +12,7 @@ const IndexPage = () => {
       <p className='desc'>
         A simple matching game. Click a card to reveal it's face and suit. Click two cards in a row with the same face and suit to leave them 'face up' as a match. The objective of the game is to make match all of the cards with as few clicks and as little time as possible.
       </p>
-      <input type='button' className='button' value={buttonLabel} onClick={buttonHandler} />
-      <Deck
-        gameStarted={gameStarted}
-        isPlaying={isPlaying}
-        showOverlay={showOverlay}
-      />
+      <Game />
       <Footer />
     </Page>
   );

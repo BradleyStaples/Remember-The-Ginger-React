@@ -96,22 +96,48 @@ a img {
 
 /* - - - - - CARDS - - - - - */
 .cardframe {
-  text-align: center;
+  position: relative;
   width: 921px;
   margin: 15px auto;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: #333;
+  border-radius: 15px;
+
+  &::after {
+    position: relative;
+    top: 40%;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: 'PAUSED';
+    font: 100px/100px "Arapey", sans-serif;
+    text-align: center;
+  }
+
+  &.hidden {
+    position: static;
+  }
 }
 
 .cardButton {
-  -webkit-appearance: none;
-  background: transparent;
-  border: none;
-  padding: 0;
-  display: block;
+  display: inline-block;
   width: 105px;
   height: 130px;
-  position: relative;
-  float: left;
   margin: 5px;
+  padding: 0;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
 }
 
 .cardframe .card {
@@ -126,7 +152,7 @@ a img {
   padding: 4px;
   border: 1px solid #555;
   border-radius: 15px;
-  box-shadow: 0px 0px 5px 1px #000;
+  box-shadow: 0 0 5px 1px #000;
   position: absolute;
   transform: rotateY(0deg);
   transform-style: preserve-3d;
@@ -136,20 +162,21 @@ a img {
 
 .cardframe .cardfront,
 .cardframe .cardback {
-  background: #dbdbdb;
-  background: radial-gradient(#dbdbdb 0%, #afafaf 100%);
-  background: radial-gradient(ellipse farthest-side at center center, #dbdbdb 0%, #AFAFAF 100%);
+  background: #ccc;
+  background: radial-gradient(#fff 0%, #ccc 100%);
+  background: radial-gradient(ellipse farthest-side at center center, #fff 0%, #ccc 100%);
 }
 
 .cardframe .cardback {
-	/* card backgrounds modified from http: //lea.verou.me/css3patterns/#blueprint-grid */
-	background-color:#269;
-  background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px),
-    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-  background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  // background from https://projects.verou.me/css3patterns/#half-rombes
+	background: #36c;
+  background:
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    #36c;
+  background-size: 15px 30px;
 }
 
 .cardframe .facedown .cardfront {
@@ -220,26 +247,20 @@ a img {
   padding: 4px;
   border: 1px solid #555;
   border-radius: 15px;
-  box-shadow: 0px 0px 5px 1px #000;
-  /* card backgrounds modified from http: //lea.verou.me/css3patterns/#blueprint-grid */
-	background-color:#269;
-  background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px),
-    linear-gradient(rgba(134, 72, 72, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-  background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  box-shadow: 0 0 0 1px #000;
+  // background from https://projects.verou.me/css3patterns/#half-rombes
+  background: #36c;
+  background:
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    #36c;
+  background-size: 15px 30px;
 }
 
 
 /* - - - - - STATISTICSS AND STATES - - - - - */
-.overlay {
-  position: absolute;
-  z-index: 5;
-  background: #333;
-  border-radius: 15px;
-}
-
 .score {
   width: 600px;
   margin: 15px auto 0;
