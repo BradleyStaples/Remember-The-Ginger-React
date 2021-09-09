@@ -6,11 +6,15 @@ import Footer from '../components/footer';
 
 const IndexPage = () => {
 
+  const [gameStarted, setGameStarted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [buttonLabel, setButtonLabel] = useState('Start');
   const [showOverlay, setShowOverlay] = useState(false);
 
   const buttonHandler = (event) => {
+    if (!gameStarted) {
+      setGameStarted(true);
+    }
     if (isPlaying) {
       // about to pause, set label to resume
       setButtonLabel('Resume');
@@ -31,6 +35,8 @@ const IndexPage = () => {
       </p>
       <input type='button' className='button' value={buttonLabel} onClick={buttonHandler} />
       <Deck
+        gameStarted={gameStarted}
+        isPlaying={isPlaying}
         showOverlay={showOverlay}
       />
       <Footer />

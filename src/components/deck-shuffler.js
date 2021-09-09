@@ -1,6 +1,12 @@
 const deckShuffler = () => {
   const faces = ['A', 'K', 'Q', 'J'];
   const suits = ['♥', '♦', '♣', '♠'];
+  const colors = {
+    '♥': 'red',
+    '♦': 'red',
+    '♣': 'black',
+    '♠': 'black'
+  };
   const deck = [];
 
   faces.forEach((face) => {
@@ -20,23 +26,21 @@ const deckShuffler = () => {
 
     shuffledDeck.push({
       face,
-      suit
+      suit,
+      color: colors[suit]
     });
   }
 
   return shuffledDeck;
 };
 
-const cardSpreader = (shuffledDeck, windowWidth) => {
-  let baseleft = (windowWidth / 2) - 150;
+const cardSpreader = (shuffledDeck) => {
 
   shuffledDeck.forEach((card, index) => {
-    let left = baseleft + (5 * index) + 'px';
+    let left = (5 * index) + 'px';
     let deg = (-15 + index) + 'deg';
-    let top = (205 + Math.floor((shuffledDeck.length - index) / 3)) + 'px'
     let style = {
       left,
-      top,
       transform: `rotate(${deg})`
     };
     card.style = style;
