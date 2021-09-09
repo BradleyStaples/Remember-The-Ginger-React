@@ -30,18 +30,6 @@ const Deck = ({ gameStarted, isPlaying, showOverlay }) => {
   }, [isPlaying]);
 
   useEffect(() => {
-    calculateEndStats();
-  }, [numClicks, numSeconds, numMatches, calculateEndStats]);
-
-  const clickIncrementor = () => {
-    setNumClicks(numClicks + 1);
-  };
-
-  secondsCounter.current = useInterval(() => {
-    setNumSeconds(numSeconds => numSeconds + 1);
-  }, isPlaying ? 1000 : null);
-
-  const calculateEndStats = () => {
     let ctm = ((numMatches / numClicks) * 100).toFixed(2);
     if (isNaN(ctm) && numClicks === 0) {
       ctm = 0.00;
@@ -52,7 +40,15 @@ const Deck = ({ gameStarted, isPlaying, showOverlay }) => {
     }
     let template = `${ctm}% click-to-match ratio | ${cps} clicks per second`;
     setEndStats(template);
+  }, [numClicks, numSeconds, numMatches]);
+
+  const clickIncrementor = () => {
+    setNumClicks(numClicks + 1);
   };
+
+  secondsCounter.current = useInterval(() => {
+    setNumSeconds(numSeconds => numSeconds + 1);
+  }, isPlaying ? 1000 : null);
 
   const cardFrameClasses = classnames({
     cardframe: true,

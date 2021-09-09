@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
 
-const Card = ({ face, suit, color, style, isPlaying, clickIncrementor}) => {
+const Card = ({ face, suit, color, isPlaying, clickIncrementor}) => {
 
   const [isFaceup, setIsFaceup] = useState(false);
 
@@ -23,21 +23,23 @@ const Card = ({ face, suit, color, style, isPlaying, clickIncrementor}) => {
   });
 
   return (
-    <div className={cardClasses} style={style} onClick={flipCard}>
-      <div className='cardback'></div>
-      <div className='cardfront'>
-        <span className='face'>
-          {isFaceup &&
-            <span>{face}</span>
-          }
-        </span>
-        <span className='suit'>
-          {isFaceup &&
-            <span>{suit}</span>
-          }
-        </span>
+    <button className='cardButton' onClick={flipCard}>
+      <div className={cardClasses}>
+        <div className='cardback'></div>
+        <div className='cardfront'>
+          <span className='face'>
+            {isFaceup &&
+              <span>{face}</span>
+            }
+          </span>
+          <span className='suit'>
+            {isFaceup &&
+              <span>{suit}</span>
+            }
+          </span>
+        </div>
       </div>
-    </div>
+    </button>
   );
 };
 
