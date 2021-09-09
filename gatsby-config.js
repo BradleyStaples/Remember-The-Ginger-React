@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "Remember The Ginger",
+    siteUrl: 'https://remember-the-ginger.bradleystaples.com',
+    title: 'Remember The Ginger',
   },
-  plugins: ["gatsby-plugin-sass"],
+  plugins: [
+    'gatsby-plugin-sass'
+  ],
 };
