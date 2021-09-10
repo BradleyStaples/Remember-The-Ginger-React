@@ -1,3 +1,5 @@
+@import 'normalize';
+
 /* - - - - - BASE STRUCTURE - - - - - */
 * {
   outline: none;
@@ -251,10 +253,10 @@ a img {
   // background from https://projects.verou.me/css3patterns/#half-rombes
   background: #36c;
   background:
-    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
-    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
-    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
-    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,0.8) 75%) 0 0,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,0.8) 75%) 0 0,
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,0.8) 75%) 7px -15px,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,0.8) 75%) 7px -15px,
     #36c;
   background-size: 15px 30px;
 }
@@ -289,21 +291,18 @@ a img {
   width: 100%;
 }
 
-
-/* - - - - - BUTTON CODE FROM CSS TRICKS - - - - - */
-/* http: //css-tricks.com/youtube-popup-buttons/ - - - - - */
 .button {
-  font-weight: bold;
+  padding: 6px 10px;
   border: 1px solid #999;
   border-radius: 3px;
+  font-weight: bold;
   text-shadow: 0 1px 1px #fff;
-  padding: 6px 10px;
+  background: linear-gradient(#fff, #e0e0e0);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.25), inset 0 0 3px #fff;
+  color: #333;
   white-space: nowrap;
   vertical-align: middle;
-  color: #333;
   cursor: pointer;
-	background: linear-gradient(to bottomm, #fff, #e0e0e0);
-	box-shadow: 0 1px 2px rgba(0,0,0,0.25), inset 0 0 3px #fff;
 }
 
 .button:hover,
@@ -313,5 +312,5 @@ a img {
   border-bottom-color: #ccc;
   border-top-color: #999;
 	box-shadow: inset 0 1px 2px #aaa;
-	background: linear-gradient(to bottom, #e6e6e6, gainsboro);
+	background: linear-gradient(#e0e0e0, #fff);
 }

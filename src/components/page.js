@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import '../styles/normalize.css';
 import '../styles/cards.scss';
 
 const Page = ({ title, children }) => {
